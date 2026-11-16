@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use Controllers\ContactController;
 use Controllers\UserController;
 use Lib\Router;
 use function Lib\responseJson;
@@ -24,4 +25,9 @@ return static function (Router $router): void {
     $router->post('/api/auth/login', [UserController::class, 'login']);
     $router->get('/api/users/me', [UserController::class, 'me']);
     $router->delete('/api/users/me', [UserController::class, 'deleteMe']);
+
+    $router->get('/api/contacts', [ContactController::class, 'index']);
+    $router->post('/api/contacts', [ContactController::class, 'store']);
+    $router->put('/api/contacts/{id}', [ContactController::class, 'update']);
+    $router->delete('/api/contacts/{id}', [ContactController::class, 'destroy']);
 };
