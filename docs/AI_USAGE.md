@@ -1,11 +1,11 @@
 # Deklarasi & Evaluasi Penggunaan Generative AI
 
 ## 1. Persentase Penggunaan AI
-- **Total Estimasi Keterlibatan AI (Tahap 1):** `40%` (Pemahaman, pengujian manual Postman/Browser, dan penyesuaian: `60%`)
+- **Total Estimasi Keterlibatan AI (Tahap 1):** `60%` (Pemahaman, pengujian manual Postman/Browser, dan penyesuaian: `40%`)
 - **Rincian per Bagian:**
-  - Backend (PHP 8.4 Native, MariaDB, JWT): `40%`
-  - Frontend (HTML, Pure CSS, Native JS `fetch`): `45%`
-  - Pengujian & Dokumentasi: `35%`
+  - Backend (PHP 8.4 Native, MariaDB, JWT): `60%`
+  - Frontend (HTML, Pure CSS, Native JS `fetch`): `75%`
+  - Pengujian & Dokumentasi: `30%`
 
 ## 2. Contoh Prompt Kunci yang Digunakan
 1. **Topik:** *Memecah Pengerjaan Bertahap dari Dasar (Tahap 1 / CPK 2)*
