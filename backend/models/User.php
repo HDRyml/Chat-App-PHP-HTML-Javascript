@@ -37,4 +37,26 @@ class User
 
         return $row !== false ? $row : null;
     }
+
+    public static function findById(int $id): ?array
+    {
+        $db = DB::getInstance();
+        $statement = $db->prepare(
+            'SELECT id, name, phone, profile_picture, created_at
+             FROM users WHERE id = :id LIMIT 1'
+        );
+        $statement->execute([':id' => $id]);
+        $row = $statement->fetch(\PDO::FETCH_ASSOC);
+
+        return $row !== false ? $row : null;
+    }
+
+    public static function deleteById(int $id): bool
+    {
+        $db = DB::getInstance();
+        $statement = $db->prepare('DELETE FROM users WHERE id = :id');
+        $statement->execute([':id' => $id]);
+
+        return $statement->rowCount() > 0;
+    }
 }

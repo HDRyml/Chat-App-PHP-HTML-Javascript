@@ -21,4 +21,7 @@ return static function (Router $router): void {
     });
 
     $router->post('/api/users', [UserController::class, 'register']);
+    $router->post('/api/auth/login', [UserController::class, 'login']);
+    $router->get('/api/users/me', [UserController::class, 'me']);
+    $router->delete('/api/users/me', [UserController::class, 'deleteMe']);
 };
