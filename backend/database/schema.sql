@@ -1,0 +1,12 @@
+-- Tahap 1 (Dasar): Tabel users
+CREATE DATABASE IF NOT EXISTS `chat-app` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE `chat-app`;
+
+CREATE TABLE IF NOT EXISTS users (
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    phone VARCHAR(20) NOT NULL UNIQUE,
+    password_hash VARCHAR(255) NOT NULL,
+    profile_picture VARCHAR(255) DEFAULT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB;

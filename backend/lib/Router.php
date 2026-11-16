@@ -46,7 +46,12 @@ class Router
     public function dispatch(string $method, string $uri): void
     {
         $path = parse_url($uri, PHP_URL_PATH);
-        $path = $this->normalizePath(is_string($path) ? $path : '/');
+        $path = is_string($path) ? $path : '/';
+        $baseDir = str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'] ?? ''));
+        if ($baseDir !== '/' && $baseDir !== '.' && str_starts_with($path, $baseDir)) {
+            $path = substr($path, strlen($baseDir)) ?: '/';
+        }
+        $path = $this->normalizePath($path);
         $method = strtoupper($method);
         $allowedMethods = [];
 

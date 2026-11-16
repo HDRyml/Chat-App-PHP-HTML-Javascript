@@ -6,6 +6,11 @@ require_once __DIR__ . '/loadEnv.php';
 require_once __DIR__ . '/response.php';
 
 use Lib\Router;
+use function Lib\responseJson;
+
+set_exception_handler(static function (\Throwable $e): void {
+    responseJson(statusCode: 500, message: 'Server error: ' . $e->getMessage());
+});
 
 $envPath = dirname(__DIR__) . '/.env';
 if (is_file($envPath)) {
