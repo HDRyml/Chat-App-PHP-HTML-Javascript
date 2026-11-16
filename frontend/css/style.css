@@ -44,15 +44,47 @@ body {
     padding: 2rem;
 }
 
+.dashboard-card {
+    max-width: 560px;
+}
+
 h1, h2 {
     font-size: 1.5rem;
     margin-bottom: 0.25rem;
+}
+
+h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
 }
 
 .subtitle {
     color: var(--muted);
     font-size: 0.875rem;
     margin-bottom: 1.25rem;
+}
+
+.dash-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.dash-header .subtitle {
+    margin-bottom: 0;
+}
+
+.header-actions {
+    display: flex;
+    gap: 0.5rem;
+    flex-shrink: 0;
+}
+
+.divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 1.25rem 0;
 }
 
 .tabs {
@@ -94,7 +126,18 @@ h1, h2 {
     color: var(--muted);
 }
 
+.contact-form {
+    margin-bottom: 1rem;
+}
+
+.contact-inputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.6rem;
+}
+
 input {
+    width: 100%;
     padding: 0.65rem 0.8rem;
     border-radius: 8px;
     border: 1px solid var(--border);
@@ -104,11 +147,12 @@ input {
 }
 
 button {
-    padding: 0.65rem 1rem;
+    padding: 0.6rem 0.95rem;
     border-radius: 8px;
     border: none;
     font-weight: 700;
     cursor: pointer;
+    font-size: 0.88rem;
 }
 
 .btn-primary {
@@ -151,23 +195,6 @@ button {
     color: #a7f3d0;
 }
 
-.profile-box {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    padding: 1rem;
-    border-radius: 10px;
-    background: var(--surface-soft);
-    border: 1px solid var(--border);
-    margin-bottom: 1.25rem;
-    font-size: 0.92rem;
-}
-
-.profile-box span {
-    color: var(--muted);
-    margin-right: 0.4rem;
-}
-
 .actions {
     display: flex;
     gap: 0.6rem;
@@ -175,4 +202,55 @@ button {
 
 .actions button {
     flex: 1;
+}
+
+.contact-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 0.75rem 0.9rem;
+    border-radius: 10px;
+    background: var(--surface-soft);
+    border: 1px solid var(--border);
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.contact-info small {
+    color: var(--muted);
+}
+
+.contact-actions {
+    display: flex;
+    gap: 0.4rem;
+    flex-shrink: 0;
+}
+
+.contact-actions button {
+    padding: 0.4rem 0.7rem;
+    font-size: 0.8rem;
+}
+
+@media (max-width: 520px) {
+    .contact-inputs {
+        grid-template-columns: 1fr;
+    }
+    .dash-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 }

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NativeChat — Masuk &amp; Daftar</title>
+    <title>NativeChat — Tahap 1</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -11,7 +11,7 @@
         <!-- Layar Auth -->
         <section id="auth-view" class="card">
             <h1>NativeChat</h1>
-            <p class="subtitle">Tahap 1 — Manajemen Akun (Pure HTML, CSS, JS)</p>
+            <p class="subtitle">Tahap 1 — Akun &amp; Kontak (Pure HTML, CSS, JS)</p>
 
             <div class="tabs">
                 <button type="button" class="tab-btn active" data-tab="login">Masuk</button>
@@ -50,20 +50,36 @@
         </section>
 
         <!-- Layar Setelah Login -->
-        <section id="dashboard-view" class="card hidden">
-            <h2>Akun Aktif</h2>
-            <p class="subtitle">Anda berhasil masuk menggunakan JWT.</p>
+        <section id="dashboard-view" class="card dashboard-card hidden">
+            <header class="dash-header">
+                <div>
+                    <h2 id="me-name">-</h2>
+                    <p class="subtitle" id="me-phone">-</p>
+                </div>
+                <div class="header-actions">
+                    <button type="button" id="btn-logout" class="btn-secondary">Keluar</button>
+                    <button type="button" id="btn-delete-account" class="btn-danger">Hapus Akun</button>
+                </div>
+            </header>
 
-            <div class="profile-box">
-                <div><span>ID:</span> <strong id="me-id">-</strong></div>
-                <div><span>Nama:</span> <strong id="me-name">-</strong></div>
-                <div><span>No. HP:</span> <strong id="me-phone">-</strong></div>
-            </div>
+            <hr class="divider">
 
-            <div class="actions">
-                <button type="button" id="btn-logout" class="btn-secondary">Keluar</button>
-                <button type="button" id="btn-delete-account" class="btn-danger">Hapus Akun</button>
-            </div>
+            <h3>Kontak Saya</h3>
+            <div id="contact-alert" class="alert hidden"></div>
+
+            <form id="contact-form" class="form contact-form">
+                <input type="hidden" id="contact-edit-id" value="">
+                <div class="contact-inputs">
+                    <input type="text" id="contact-name" placeholder="Nama kontak" required>
+                    <input type="text" id="contact-phone" placeholder="Nomor HP" required>
+                </div>
+                <div class="actions">
+                    <button type="submit" id="contact-submit-btn" class="btn-primary">Tambah Kontak</button>
+                    <button type="button" id="contact-cancel-btn" class="btn-secondary hidden">Batal</button>
+                </div>
+            </form>
+
+            <ul id="contact-list" class="contact-list"></ul>
         </section>
     </main>
 
